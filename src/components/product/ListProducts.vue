@@ -18,8 +18,7 @@
             <strong><span>Price: </span></strong>
             <i>{{prod.price}}</i><strong>$</strong>
           </h2>
-          <router-link class="spacing" :to="`/Contact`">Production Detail</router-link>
-          <button class="bg-success" v-on:click="getProduct(prod.id)">Production Details</button>
+          <router-link class="spacing" :to="`/Contact/` + prod.id">Production Detail</router-link>
         </div>
       </div>
     </div>
@@ -39,6 +38,7 @@
           createdAt: ''
         },
         errors: [],
+        productResponse: [],
         list_products: []
       }
     },
@@ -53,13 +53,6 @@
             this.list_products = result.data
           });
       },
-      getProduct(id) {
-        let baseURI = 'http://127.0.0.1:8080/products/'
-        this.$http.get(baseURI + id)
-          .then((result) => {
-            this.product = result.data
-          });
-      }
     }
   }
 </script>
