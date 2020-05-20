@@ -9,10 +9,11 @@
             <div class="col-md-10">
               <div class="container">
                 <div class="row">
-                  <div class="col-sm-4"></div>
-                  <NavbarLeft></NavbarLeft>
+                  <div class="col-sm-4">
+                    <NavbarLeft></NavbarLeft>
+                  </div>
                   <div class="col-md-8">
-                  <ListProducts></ListProducts>
+                    <ListProducts></ListProducts>
                   </div>
                 </div>
               </div>
@@ -27,6 +28,7 @@
 <script>
   import ListProducts from "./product/ListProducts";
   import NavbarLeft from "./navbar/NavbarLeft";
+
   export default {
     name: 'Home',
     components: {

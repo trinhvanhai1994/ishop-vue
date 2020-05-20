@@ -2,8 +2,6 @@
   <div>
     <div id="app">
       <NavbarTop></NavbarTop>
-      <NavbarLeft></NavbarLeft>
-      <Home></Home>
       <router-view/>
     </div>
       <Footer></Footer>
@@ -12,7 +10,6 @@
 
 <script>
   import NavbarTop from './components/navbar/NavbarTop'
-  import NavbarLeft from "./components/navbar/NavbarLeft";
   import Footer from "./components/footer/Footer";
   import Home from "./components/Home";
 
@@ -21,7 +18,6 @@
     components: {
       Footer,
       NavbarTop,
-      NavbarLeft,
       Home
     }
   }

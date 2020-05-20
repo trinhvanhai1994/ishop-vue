@@ -8,21 +8,18 @@
     </div>
     <hr>
 
-    <div class="col-md-8">
-      <div v-for="prod in list_products" :key="prod.id">
-        <div>
+    <div>
+      <div>
+        <div v-for="prod in list_products" :key="prod.id">
           <img src="../../assets/images/image2.jpg" class="img-thumbnail"
                width="600" height="400" alt="PickGunny">
-        </div>
-        <div>
           <h2>
             <strong>{{prod.name}}</strong><br>
             <strong><span>Price: </span></strong>
             <i>{{prod.price}}</i><strong>$</strong>
           </h2>
-<!--          <a href="/product/{{prod.id}}" title="PickGunny">-->
-            <span class="bg-success"><h3>Xem chi tiết</h3></span>
-<!--          </a>-->
+          <router-link class="spacing" :to="`/Contact`">Production Detail</router-link>
+          <button class="bg-success" v-on:click="getProduct(prod.id)">Production Details</button>
         </div>
       </div>
     </div>
@@ -50,10 +47,17 @@
     },
     methods: {
       getListProducts() {
-        const baseURI = 'http://127.0.0.1:8080/products/all'
-        this.$http.get(baseURI)
+        let baseURI = 'http://127.0.0.1:8080/products/';
+        this.$http.get(baseURI + 'all')
           .then((result) => {
             this.list_products = result.data
+          });
+      },
+      getProduct(id) {
+        let baseURI = 'http://127.0.0.1:8080/products/'
+        this.$http.get(baseURI + id)
+          .then((result) => {
+            this.product = result.data
           });
       }
     }
