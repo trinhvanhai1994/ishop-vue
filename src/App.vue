@@ -2,6 +2,8 @@
   <div>
     <div id="app">
       <NavbarTop></NavbarTop>
+      <img id="bg-image-body" class="fa-font-awesome-logo-full"
+           src="./assets/images/top-background.jpg" alt="Background">
       <router-view/>
     </div>
       <Footer></Footer>

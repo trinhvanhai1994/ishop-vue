@@ -18,7 +18,9 @@
             <strong><span>Price: </span></strong>
             <i>{{prod.price}}</i><strong>$</strong>
           </h2>
-          <router-link class="spacing" :to="`/Contact/` + prod.id">Production Detail</router-link>
+          <a v-on:click="viewProduct(prod.id)">
+            <button class="alert-success">Production Detail</button>
+          </a>
         </div>
       </div>
     </div>
@@ -38,7 +40,6 @@
           createdAt: ''
         },
         errors: [],
-        productResponse: [],
         list_products: []
       }
     },
@@ -53,6 +54,9 @@
             this.list_products = result.data
           });
       },
+      viewProduct(id) {
+        this.$router.push({name:'ProductDetail', params:{id}})
+      }
     }
   }
 </script>

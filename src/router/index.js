@@ -4,8 +4,11 @@ import Router from 'vue-router'
 import Home from '../components/Home'
 import About from '../components/navbar/About'
 import Contact from '../components/navbar/Contact'
+import ProductDetail from "../components/product/ProductDetail";
+import CartInfo from "../components/product/CartInfo";
+import AddProduct from "../components/product/AddProduct";
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
   routes: [
@@ -23,6 +26,21 @@ export default new Router({
       path: '/contact',
       name: 'Contact',
       component: Contact
+    },
+    {
+      path: '/Product-detail',
+      name: 'ProductDetail',
+      component: ProductDetail
+    },
+    {
+      path: '/add-product',
+      name: 'AddProduct',
+      component: AddProduct
+    },
+    {
+      path: '/cart-info',
+      name: 'CartInfo',
+      component: CartInfo
     }
   ]
 })

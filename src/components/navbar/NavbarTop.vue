@@ -37,11 +37,6 @@ export default {
     return {
       links: [
         {
-          id: 0,
-          text: 'Hello World',
-          page:'/HelloWorld'
-        },
-        {
           id: 1,
           text: 'Home',
           page:'/Home'
@@ -55,6 +50,11 @@ export default {
           id: 3,
           text: 'Contact',
           page:'/Contact'
+        },
+        {
+          id: 4,
+          text: 'AddProduct',
+          page:'/add-product'
         }
       ]
     }
