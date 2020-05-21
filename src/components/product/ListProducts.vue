@@ -21,6 +21,9 @@
           <a v-on:click="viewProduct(prod.id)">
             <button class="alert-success">Production Detail</button>
           </a>
+          <a v-on:click="deleteProduct(prod.id)">
+            <button class="alert-danger">Delete</button>
+          </a>
         </div>
       </div>
     </div>
@@ -56,6 +59,11 @@
       },
       viewProduct(id) {
         this.$router.push({name:'ProductDetail', params:{id}})
+      },
+      deleteProduct(id) {
+        let baseURI = 'http://127.0.0.1:8080/products/';
+        this.$http.delete(baseURI + id);
+        this.list_products = this.getListProducts();
       }
     }
   }

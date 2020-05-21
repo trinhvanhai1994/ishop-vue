@@ -2,12 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
-        <form
-          id="app"
-          v-bind:submit="checkForm"
-          action="http://127.0.0.1:8080/products"
-          method="post"
-        >
+        <form>
 
           <a v-if="errors.length">
             <b>Please correct the following error(s):</b>
