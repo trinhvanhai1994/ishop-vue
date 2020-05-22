@@ -7,6 +7,7 @@ import Contact from '../components/navbar/Contact'
 import ProductDetail from "../components/product/ProductDetail";
 import CartInfo from "../components/product/CartInfo";
 import AddProduct from "../components/product/AddProduct";
+import Demo from "../components/product/Category";
 
 Vue.use(Router);
 
@@ -41,6 +42,11 @@ export default new Router({
       path: '/cart-info',
       name: 'CartInfo',
       component: CartInfo
+    },
+    {
+      path: '/demo',
+      name: 'Demo',
+      component: Demo
     }
   ]
 })

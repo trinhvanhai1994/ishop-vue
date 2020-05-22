@@ -21,18 +21,28 @@
           </div>
         </div>
         <div class="form-group row">
+          <label for="description" class="col-sm-2 col-form-label">Description</label>
+          <div class="col-sm-10">
+            <input type="text" v-model="description" class="form-control" id="description" placeholder="Description" required>
+          </div>
+        </div>
+        <div class="form-group row">
           <label for="discount" class="col-sm-2 col-form-label">Discount</label>
           <div class="col-sm-10">
             <input type="text" v-model="discount" class="form-control" id="discount" placeholder="Discount" required>
           </div>
         </div>
-        <label for="category">Choose a Category:</label>
-        <select v-model="category" id="category" name="Category" >
-          <option value="1">SPRING</option>
-          <option value="2">SUMMER</option>
-          <option value="3">FALL</option>
-          <option value="4">WINTER</option>
-        </select>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label" for="category" >Choose a Category</label>
+          <div class="col-sm-10" >
+            <select  v-model="category" id="category" name="Category" class="form-control" >
+              <option value="1">SPRING</option>
+              <option value="2">SUMMER</option>
+              <option value="3">FALL</option>
+              <option value="4">WINTER</option>
+            </select>
+          </div>
+        </div>
 
         <div class="form-group row">
           <div class="col-sm-10 offset-sm-2">
@@ -46,21 +56,6 @@
 
 <script>
   export default {
-    data() {
-      return {
-        errors: [],
-        id: this.$route.params.id,
-        name: '',
-        price: 0,
-        image: '',
-        category: 0,
-        discount: 0,
-        // waitRequest: true
-      }
-    },
-    created() {
-      this.addProduct()
-    },
     methods: {
       addProduct() {
         // this.waitRequest = false;
@@ -70,12 +65,14 @@
           price: this.price,
           image: this.image,
           category: this.category,
-          discount: this.discount
+          discount: this.discount,
+          description: this.description
         })
           .then((result) => {
             // if (result.data.isStatus) {
               // this.waitRequest = true;
               alert('Add product successfully.');
+              // this.$router.push({name:'ListProducts', params:{}})
             // }
           });
       },
@@ -106,7 +103,14 @@
   }
 </script>
 <style>
+  #field-name {
+    margin-left: 10px;
+  }
   .bs-example{
     margin: 20px;
+  }
+  #category {
+    width: 100%;
+    height: 100%;
   }
 </style>

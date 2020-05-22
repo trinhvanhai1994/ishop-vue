@@ -55,6 +55,11 @@ export default {
           id: 4,
           text: 'AddProduct',
           page:'/add-product'
+        },
+        {
+          id: 5,
+          text: 'Category',
+          page:'/category'
         }
       ]
     }

@@ -22,14 +22,7 @@
                 <h3>
                  Description
                 </h3><br>
-                <p>The mother gave her baby a red apple. The baby tried to eat the apple.
-                  His mouth was too small. And he didn't have any teeth. His brother took the apple.
-                  His brother ate the apple. The baby cried. His brother gave the baby a blue ball to play with.
-                  The baby smiled. His brother took the ball from the baby. He rolled the ball on the floor.
-                  The brown and white dog picked up the ball. The dog chewed on the ball. The baby cried again.
-                  His brother picked up the cat. He put the cat on the bed with the baby. The baby pulled the cat's tail.
-                  The cat jumped off the bed. The dog chased the cat. The baby cried again.
-                  His brother let the baby hold a sock. The baby played with the sock. The baby was happy.</p>
+                <p>{{product.description}}</p>
               </div>
             </div>
           </div>
@@ -49,6 +42,7 @@
           price: 0,
           image: '',
           discount: 0,
+          description: '',
           createdAt: ''
         }
       }
