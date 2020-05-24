@@ -13,24 +13,53 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Link</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
     </ul>
     <hr class="d-sm-none">
+
+    <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">Product Category</button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a v-on:click="viewProducts('1')">
+          <button class="alert-success">Spring</button>
+        </a>
+        <a v-on:click="viewProducts('2')">
+          <button class="alert-success">Summer</button>
+        </a>
+        <a v-on:click="viewProducts('3')">
+          <button class="alert-success">Fall</button>
+        </a>
+        <a v-on:click="viewProducts('4')">
+          <button class="alert-success">Winter</button>
+        </a>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+  import Category from "../product/Category";
+
   export default {
     name: 'NavbarLeft',
     components: {
+      Category
+    },
+    methods: {
+      viewProducts(id) {
+        console.log(id)
+        this.$router.push({name: 'Category', params: {id}})
+      },
     }
   }
 </script>
 <style>
+  .dropdown:hover > .dropdown-menu {
+    display: block;
+  }
 
+  .dropdown > .dropdown-toggle:active {
+    /*Without this, clicking will make it sticky*/
+    pointer-events: none;
+  }
 </style>

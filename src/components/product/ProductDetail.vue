@@ -6,7 +6,7 @@
             <div class="row">
               <div class="col-sm-4">
                 <div class="body-product">
-                  <img src="../../assets/images/image2.jpg" class="img-thumbnail"
+                  <img v-bind:src="product.image" class="img-thumbnail"
                        width="600" height="400" alt="PickGunny">
                   <h2>
                     <strong>Name: {{product.name}}</strong><br>

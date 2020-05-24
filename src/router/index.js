@@ -7,7 +7,8 @@ import Contact from '../components/navbar/Contact'
 import ProductDetail from "../components/product/ProductDetail";
 import CartInfo from "../components/product/CartInfo";
 import AddProduct from "../components/product/AddProduct";
-import Demo from "../components/product/Category";
+import Category from "../components/product/Category";
+import ProductByCategory from "../components/product/ProductByCategory";
 
 Vue.use(Router);
 
@@ -39,14 +40,33 @@ export default new Router({
       component: AddProduct
     },
     {
+      path: '/product-category/:id',
+      name: 'ProductByCategory',
+      component: ProductByCategory
+    },
+    {
+      path: '/category',
+      name: 'Category',
+      component: Category
+    },
+    {
       path: '/cart-info',
       name: 'CartInfo',
       component: CartInfo
     },
-    {
-      path: '/demo',
-      name: 'Demo',
-      component: Demo
-    }
+    { path: '*', redirect: '/' }
   ]
+});
+
+new Router((to, from, next) => {
+  // redirect to login page if not logged in and trying to access a restricted page
+  const publicPages = ['/login', '/register'];
+  const authRequired = !publicPages.includes(to.path);
+  const loggedIn = localStorage.getItem('user');
+
+  if (authRequired && !loggedIn) {
+    return next('/login');
+  }
+
+  next();
 })

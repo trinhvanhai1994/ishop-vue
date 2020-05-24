@@ -1,6 +1,20 @@
 <template>
   <div class="api-calling">
-    <Category></Category>
+    <div class="title">
+      <div v-if="category === '1'">
+        <h1 class="btn btn-info">Spring</h1>
+      </div>
+      <div v-if="category === '2'">
+        <h1 class="btn btn-info">Summer</h1>
+      </div>
+      <div v-if="category === '3'">
+        <h1 class="btn btn-info">Fall</h1>
+      </div>
+      <div v-if="category === '4'">
+        <h1 class="btn btn-info">Winter</h1>
+      </div>
+    </div>
+
     <div class="error" v-if="errors.length">
            <span v-for="(err, index) in errors" :key="index">
                {{ err }}
@@ -15,8 +29,9 @@
 <script>
   import Category from "./Category";
   import ProductView from "./ProductView";
+
   export default {
-    name: 'ListProduct',
+    name: 'ProductByCategory',
     components: {
       Category,
       ProductView
@@ -31,22 +46,24 @@
           createdAt: ''
         },
         errors: [],
+        category: this.$route.params.id,
         list_products: []
       }
     },
     created() {
-      this.getListProducts()
+      this.getProductsByCategory(this.category);
     },
     methods: {
-      getListProducts() {
-        let baseURI = 'http://127.0.0.1:8080/products/';
-        this.$http.get(baseURI + 'all')
+      getProductsByCategory(category) {
+        let self = this;
+        let baseURI = 'http://127.0.0.1:8080/products/category/';
+        this.$http.get(baseURI + category)
           .then((result) => {
-            this.list_products = result.data
+             this.list_products = result.data
           });
       },
       viewProduct(id) {
-        this.$router.push({name:'ProductDetail', params:{id}})
+        this.$router.push({name: 'ProductDetail', params: {id}})
       },
       deleteProduct(id, index) {
         let baseURI = 'http://127.0.0.1:8080/products/';
@@ -57,4 +74,7 @@
   }
 </script>
 <style>
+  .title {
+    margin-top: 10px;
+  }
 </style>

@@ -7,7 +7,7 @@
             <div v-for="item in cartResponse.items" :key="item.id">
                 <b-row>
                   <b-col>
-                    <img src="../../assets/images/image2.jpg" class="img-thumbnail"
+                    <img v-bind:src="item.image" class="img-thumbnail"
                          width="600" height="400" alt="PickGunny">
                     <h2>
                       <strong>Product Name: {{item.name}}</strong><br>
